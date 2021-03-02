@@ -1154,6 +1154,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@expo-google-fonts/poppins@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/poppins/-/poppins-0.1.0.tgz#aae4df9e80d68ec9dc6764e57dc931f1f64016cd"
+  integrity sha512-iC8ii7hYyK22N3ivvLyIspLQ0D4dn1mB+llhYnUCr/h/QfwUWyEosq1uWiwNC47yCedsiPiZ99vJSfpYRjBDrA==
+
 "@expo/config-plugins@1.0.20":
   version "1.0.20"
   resolved "https://registry.yarnpkg.com/@expo/config-plugins/-/config-plugins-1.0.20.tgz#b1964daf063d7ce07c3f135aa92ccf1c60cd6e46"
