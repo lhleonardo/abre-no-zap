@@ -55,17 +55,6 @@ export const Label = styled.Text`
     font-size: 18px;
 `;
 
-export const Input = styled.TextInput`
-    border: 1px solid white;
-    padding: 12px;
-    border-radius: 5px;
-
-    background: #3D3B39;
-
-    font-size: 16px;
-    color: #eee;
-`;
-
 export const Button = styled.TouchableOpacity`
     background: #5F59B1;
 

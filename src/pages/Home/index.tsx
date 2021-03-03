@@ -3,8 +3,9 @@ import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { ActivityIndicator, Alert, Linking, Text } from "react-native";
+import { Input } from "../../components/Input";
 import { isValidPhone, phoneMask } from "../../utils";
-import { AnouncementContainer, AppDescription, Button, ButtonText, Container, Header, Input, Label, Main, SettingsContainer, TextTitle } from "./styles";
+import { AnouncementContainer, AppDescription, Button, ButtonText, Container, Header, Label, Main, SettingsContainer, TextTitle } from "./styles";
 
 function Home() {
     const [phone, setPhone] = useState<string>("");
@@ -52,7 +53,7 @@ function Home() {
 
             <Main>
                 <Label>Digite o número de telefone</Label>
-                <Input placeholderTextColor="#999" placeholder="(00)0000-0000" keyboardType="phone-pad" value={phone} onChangeText={(value) => changePhoneText(value)} />
+                <Input placeholderTextColor="#999" maxLength={14} placeholder="(00)0000-0000" keyboardType="phone-pad" value={phone} onChangeText={(value) => changePhoneText(value)} />
 
                 <Button onPress={handleStartConversation}>
                     <ButtonText >Iniciar conversa</ButtonText>
