@@ -1,5 +1,6 @@
 import { Poppins_400Regular, useFonts } from "@expo-google-fonts/poppins";
 import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { ActivityIndicator, Alert, Linking, Text } from "react-native";
 import { AnouncementContainer, AppDescription, Button, ButtonText, Container, Header, Input, Label, Main, SettingsContainer, TextTitle } from "./styles";
@@ -19,12 +20,13 @@ function Home() {
     const [phone, setPhone] = useState<string>("");
     const [fontLoaded] = useFonts({ Poppins_400Regular });
 
+    const { navigate } = useNavigation();
+
     if (!fontLoaded) {
         return <ActivityIndicator></ActivityIndicator>
     }
 
     function handleStartConversation() {
-
         if (!phone) {
             Alert.alert("Calma lá!", "Informe o número para continuar");
             return;
@@ -38,6 +40,10 @@ function Home() {
         Linking.openURL(`http://api.whatsapp.com/send?phone=+55${phone}&text=Opa,testando`);
     }
 
+    function handleOpenSettings() {
+        navigate("Settings");
+    }
+
     function changePhoneText(value: string) {
         const formattedText = phoneMask(value);
         setPhone(formattedText);
@@ -45,7 +51,7 @@ function Home() {
 
     return (
         <Container>
-            <SettingsContainer>
+            <SettingsContainer onPress={handleOpenSettings}>
                 <MaterialIcons name="settings" color="#5F59B1" size={36} />
             </SettingsContainer>
             <Header>
