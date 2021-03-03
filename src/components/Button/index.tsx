@@ -6,8 +6,8 @@ interface ButtonProps extends TouchableOpacityProps {
     children: string;
 }
 
-function Button({ children, ...props }: ButtonProps) {
-    return <ButtonStyle {...props}>
+function Button({ children, disabled, ...props }: ButtonProps) {
+    return <ButtonStyle disabled={!!disabled} {...props}>
         <ButtonText>{children}</ButtonText>
     </ButtonStyle>
 }

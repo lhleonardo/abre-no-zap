@@ -54,7 +54,7 @@ function Home() {
 
             <Main>
                 <Label>Digite o número de telefone</Label>
-                <Input placeholderTextColor="#999" maxLength={14} placeholder="(00)0000-0000" keyboardType="phone-pad" value={phone} onChangeText={(value) => changePhoneText(value)} />
+                <Input maxLength={14} placeholder="(00)0000-0000" keyboardType="phone-pad" value={phone} onChangeText={(value) => changePhoneText(value)} />
 
                 <Button onPress={handleStartConversation}>
                     Iniciar conversa

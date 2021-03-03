@@ -1,7 +1,16 @@
 import styled from "styled-components/native"
 
-export const ButtonStyle = styled.TouchableOpacity`
-    background: #5F59B1;
+interface ButtonStyleProps {
+    disabled?: boolean;
+}
+
+const colors = {
+    normal: '#5F59B1',
+    disabled: '#363466'
+}
+
+export const ButtonStyle = styled.TouchableOpacity<ButtonStyleProps>`
+    background: ${props => props.disabled ? colors.disabled : colors.normal};
 
     margin-top: 16px;
 
