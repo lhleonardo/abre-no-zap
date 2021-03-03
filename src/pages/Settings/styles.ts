@@ -43,7 +43,7 @@ export const Label = styled.Text`
 `;
 
 export const AboutSection = styled.View`
-    margin-top: 30px;
+    margin-top: 40px;
 
     border-style : solid;
     border-top-width: 1px;

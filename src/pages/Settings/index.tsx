@@ -1,24 +1,24 @@
+import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, Alert, Linking, ScrollView, Keyboard } from "react-native";
+import { Alert, Keyboard, Linking, ScrollView } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import avatar from "../../../assets/lhleonardo.jpg";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
-import { FontAwesome } from "@expo/vector-icons"
+import { storage } from "../../services/ConfigStorage";
 import {
     AboutSection,
     AboutTitle,
     AppDescription,
     AuthorCard,
-    AuthorContact, AuthorContacts, AuthorDetails, AuthorImage, AuthorName, AuthorSection, AuthorDescription,
+    AuthorContact, AuthorContacts, AuthorDescription, AuthorDetails, AuthorImage, AuthorName, AuthorSection,
     AuthorTitle, BackButton,
     ConfigSection,
     Container,
     Header,
     HeaderText, Label, Separator
 } from "./styles";
-import { storage } from "../../services/ConfigStorage";
 
 
 function openLinkedIn() {
@@ -111,15 +111,15 @@ export function Settings() {
                             <AuthorDescription>Desenvolvedor full-stack</AuthorDescription>
                             <AuthorContacts>
                                 <AuthorContact onPress={openGithub}>
-                                    <FontAwesome color="white" size={26} name="github" />
+                                    <FontAwesome color="white" size={30} name="github" />
                                 </AuthorContact>
                                 <Separator />
                                 <AuthorContact onPress={openFacebook}>
-                                    <FontAwesome color="white" size={26} name="facebook-official" />
+                                    <FontAwesome color="white" size={30} name="facebook-official" />
                                 </AuthorContact>
                                 <Separator />
                                 <AuthorContact onPress={openLinkedIn}>
-                                    <FontAwesome color="white" size={26} name="linkedin-square" />
+                                    <FontAwesome color="white" size={30} name="linkedin-square" />
                                 </AuthorContact>
                             </AuthorContacts>
                         </AuthorDetails>
