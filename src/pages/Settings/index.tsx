@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
-import { Linking, ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { ActivityIndicator, Alert, Linking, ScrollView, Keyboard } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import avatar from "../../../assets/lhleonardo.jpg";
 import { Button } from "../../components/Button";
@@ -11,13 +11,14 @@ import {
     AboutTitle,
     AppDescription,
     AuthorCard,
-    AuthorContact, AuthorContacts, AuthorDetails, AuthorImage, AuthorName, AuthorSection,
+    AuthorContact, AuthorContacts, AuthorDetails, AuthorImage, AuthorName, AuthorSection, AuthorDescription,
     AuthorTitle, BackButton,
     ConfigSection,
     Container,
     Header,
     HeaderText, Label, Separator
 } from "./styles";
+import { storage } from "../../services/ConfigStorage";
 
 
 function openLinkedIn() {
@@ -33,11 +34,39 @@ function openFacebook() {
 }
 
 export function Settings() {
-
     const { goBack } = useNavigation();
+
+    const [message, setMessage] = useState<string | undefined>(undefined);
+
+    const [inputMessage, setInputMessage] = useState<string | undefined>(undefined);
+
+    useEffect(() => {
+        async function loadMessage() {
+            const result = await storage.loadMessage();
+            setMessage(result);
+            setInputMessage(result);
+        }
+
+        loadMessage();
+    }, []);
+
 
     function handleGoBack() {
         goBack();
+    }
+
+    function onChangeInputMessage(value: string) {
+        setInputMessage(value);
+    }
+
+    async function onClickSaveMessage() {
+        await storage.setMessage(inputMessage!!)
+
+        Keyboard.dismiss()
+
+        Alert.alert("Sucesso", "Configurações salvas!")
+
+        setMessage(inputMessage)
     }
 
     return <Container>
@@ -55,9 +84,12 @@ export function Settings() {
                     numberOfLines={5}
                     multiline={true}
                     textAlignVertical="top"
+                    value={inputMessage}
+                    defaultValue={message}
+                    onChangeText={onChangeInputMessage}
                     placeholder="Aqui deve estar a mensagem padrão que será enviada no início da conversa."
                 />
-                <Button disabled>Salvar</Button>
+                <Button disabled={message === inputMessage} onPress={onClickSaveMessage}>Salvar</Button>
             </ConfigSection>
 
             <AboutSection>
@@ -76,6 +108,7 @@ export function Settings() {
                         <AuthorImage source={avatar}></AuthorImage>
                         <AuthorDetails>
                             <AuthorName>Leonardo Braz</AuthorName>
+                            <AuthorDescription>Desenvolvedor full-stack</AuthorDescription>
                             <AuthorContacts>
                                 <AuthorContact onPress={openGithub}>
                                     <FontAwesome color="white" size={26} name="github" />

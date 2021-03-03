@@ -32,18 +32,24 @@ export const HeaderText = styled.Text`
 `;
 
 export const ConfigSection = styled.View`
-    margin-top: 12px;
+    margin-top: 18px;
 `;
 
 export const Label = styled.Text`
     color: white;
 
     font-family: 'Poppins_400Regular';
-    font-size: 16px;
+    font-size: 18px;
 `;
 
 export const AboutSection = styled.View`
-    margin-top: 24px;
+    margin-top: 30px;
+
+    border-style : solid;
+    border-top-width: 1px;
+    border-top-color : white;
+
+    padding-top: 30px;
 `;
 
 export const AboutTitle = styled.Text`
@@ -58,6 +64,10 @@ export const AppDescription = styled.Text`
 
     font-family: 'Poppins_400Regular';
     font-size: 14px;
+
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
 `;
 
 export const AuthorSection = styled.View`
@@ -75,6 +85,10 @@ export const AuthorCard = styled.View`
     flex-direction: row;
 
     align-items: center;
+
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
 `;
 
 export const AuthorImage = styled.Image`
@@ -94,6 +108,15 @@ export const AuthorName = styled.Text`
 
     font-family: 'Poppins_400Regular';
     font-size: 18px;
+
+    font-weight: bold;
+`;
+
+export const AuthorDescription = styled.Text`
+    color: white;
+
+    font-family: 'Poppins_400Regular';
+    font-size: 16px;
 `;
 
 export const AuthorContacts = styled.View`
@@ -102,10 +125,9 @@ export const AuthorContacts = styled.View`
     flex-direction: row;
 `;
 
-export const AuthorContact = styled.TouchableNativeFeedback`
-`;
+export const AuthorContact = styled.TouchableNativeFeedback``;
 
 export const Separator = styled.View`
-    width: 5px;
+    width: 10px;
 `;
 

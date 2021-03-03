@@ -1,8 +1,8 @@
-import { Poppins_400Regular, useFonts } from "@expo-google-fonts/poppins";
+
 import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { ActivityIndicator, Alert, Linking, Text } from "react-native";
+import { Alert, Linking, Text } from "react-native";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { isValidPhone, phoneMask } from "../../utils";
@@ -10,13 +10,8 @@ import { AnouncementContainer, AppDescription, Container, Header, Label, Main, S
 
 function Home() {
     const [phone, setPhone] = useState<string>("");
-    const [fontLoaded] = useFonts({ Poppins_400Regular });
 
     const { navigate } = useNavigation();
-
-    if (!fontLoaded) {
-        return <ActivityIndicator />
-    }
 
     function handleStartConversation() {
         if (!phone) {
