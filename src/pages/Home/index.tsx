@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Alert, Linking, Text } from "react-native";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
+import { storage } from "../../services/ConfigStorage";
 import { isValidPhone, phoneMask } from "../../utils";
 import { AnouncementContainer, AppDescription, Container, Header, Label, Main, SettingsContainer, TextTitle } from "./styles";
 
@@ -13,7 +14,7 @@ function Home() {
 
     const { navigate } = useNavigation();
 
-    function handleStartConversation() {
+    async function handleStartConversation() {
         if (!phone) {
             Alert.alert("Calma lá!", "Informe o número para continuar");
             return;
@@ -24,7 +25,9 @@ function Home() {
             return;
         }
 
-        Linking.openURL(`http://api.whatsapp.com/send?phone=+55${phone}&text=Opa,testando`);
+        const message = await storage.loadMessage();
+
+        Linking.openURL(`http://api.whatsapp.com/send?phone=+55${phone}&text=${message}`);
     }
 
     function handleOpenSettings() {
