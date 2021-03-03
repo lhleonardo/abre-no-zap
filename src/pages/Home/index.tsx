@@ -3,18 +3,8 @@ import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { ActivityIndicator, Alert, Linking, Text } from "react-native";
+import { isValidPhone, phoneMask } from "../../utils";
 import { AnouncementContainer, AppDescription, Button, ButtonText, Container, Header, Input, Label, Main, SettingsContainer, TextTitle } from "./styles";
-
-function phoneMask(value: string) {
-    value = value.replace(/\D/g, "");
-    value = value.replace(/^(\d{2})(\d)/g, "($1)$2");
-    value = value.replace(/(\d)(\d{4})$/, "$1-$2");
-    return value;
-}
-
-function isValidPhone(phone: string) {
-    return /\(\d{2}\)\d?\d{4}\-\d{4}/.test(phone);
-}
 
 function Home() {
     const [phone, setPhone] = useState<string>("");
@@ -23,7 +13,7 @@ function Home() {
     const { navigate } = useNavigation();
 
     if (!fontLoaded) {
-        return <ActivityIndicator></ActivityIndicator>
+        return <ActivityIndicator />
     }
 
     function handleStartConversation() {
