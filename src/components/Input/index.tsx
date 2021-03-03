@@ -4,7 +4,7 @@ import { TextInputProps } from "react-native"
 import { InputStyle } from "./styles";
 
 function Input(props: TextInputProps) {
-    return <InputStyle {...props} />
+    return <InputStyle placeholderTextColor="#999" {...props} />
 }
 
 export { Input }
