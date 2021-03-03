@@ -55,24 +55,6 @@ export const Label = styled.Text`
     font-size: 18px;
 `;
 
-export const Button = styled.TouchableOpacity`
-    background: #5F59B1;
-
-    margin-top: 16px;
-
-    padding: 20px;
-    border: 1px solid white;
-    border-radius: 5px;
-
-    align-items: center;
-`;
-
-export const ButtonText = styled.Text`
-    color: white;
-    font-family: 'Poppins_400Regular';
-    font-size: 16px;
-`;
-
 export const AnouncementContainer = styled.View`
     height: 15%;
     background: #c4c4c4;
